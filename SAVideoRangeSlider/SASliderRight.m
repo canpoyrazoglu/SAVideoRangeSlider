@@ -25,6 +25,9 @@
 
 #import "SASliderRight.h"
 
+
+#define THEME_COLOR   [UIColor colorWithWhite:0 alpha:0.03]//[UIColor colorWithHue:212.0/360 saturation:0.87 brightness:1.00 alpha:1]
+
 @implementation SASliderRight
 
 - (id)initWithFrame:(CGRect)frame
@@ -48,14 +51,14 @@
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     //// Color Declarations
-    UIColor* color5 = [UIColor colorWithRed: 0.992 green: 0.902 blue: 0.004 alpha: 1];
-    UIColor* gradientColor2 = [UIColor colorWithRed: 1 green: 1 blue: 1 alpha: 1];
-    UIColor* color6 = [UIColor colorWithRed: 0.196 green: 0.161 blue: 0.047 alpha: 1];
+    UIColor* color5 = THEME_COLOR;
+    UIColor* gradientColor2 = THEME_COLOR;
+    UIColor* color6 = THEME_COLOR;
     
     //// Gradient Declarations
     NSArray* gradient3Colors = [NSArray arrayWithObjects:
                                 (id)gradientColor2.CGColor,
-                                (id)[UIColor colorWithRed: 0.996 green: 0.951 blue: 0.502 alpha: 1].CGColor,
+                                (id)THEME_COLOR.CGColor,
                                 (id)color5.CGColor, nil];
     CGFloat gradient3Locations[] = {0, 0, 0.49};
     CGGradientRef gradient3 = CGGradientCreateWithColors(colorSpace, (__bridge CFArrayRef)gradient3Colors, gradient3Locations);

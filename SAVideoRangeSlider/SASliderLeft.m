@@ -23,6 +23,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+#define THEME_COLOR   [UIColor colorWithWhite:0 alpha:0.01]//[UIColor colorWithHue:212.0/360 saturation:0.87 brightness:1.00 alpha:1]
 #import "SASliderLeft.h"
 
 @implementation SASliderLeft
@@ -46,14 +47,14 @@
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     //// Color Declarations
-    UIColor* color5 = [UIColor colorWithRed: 0.992 green: 0.902 blue: 0.004 alpha: 1];
+    UIColor* color5 = THEME_COLOR;
     UIColor* gradientColor2 = [UIColor colorWithRed: 1 green: 1 blue: 1 alpha: 1];
-    UIColor* color6 = [UIColor colorWithRed: 0.196 green: 0.161 blue: 0.047 alpha: 1];
+    UIColor* color6 = THEME_COLOR;
     
     //// Gradient Declarations
     NSArray* gradient3Colors = [NSArray arrayWithObjects:
                                 (id)gradientColor2.CGColor,
-                                (id)[UIColor colorWithRed: 0.996 green: 0.951 blue: 0.502 alpha: 1].CGColor,
+                                (id)THEME_COLOR.CGColor,
                                 (id)color5.CGColor, nil];
     CGFloat gradient3Locations[] = {0, 0, 0.49};
     CGGradientRef gradient3 = CGGradientCreateWithColors(colorSpace, (__bridge CFArrayRef)gradient3Colors, gradient3Locations);
@@ -77,7 +78,7 @@
     roundedRectanglePath.lineWidth = 0.5;
     [roundedRectanglePath stroke];
     
-    
+
     //// Bezier 3 Drawing
     UIBezierPath* bezier3Path = [UIBezierPath bezierPath];
     [bezier3Path moveToPoint: CGPointMake(CGRectGetMinX(bubbleFrame) + 0.42806 * CGRectGetWidth(bubbleFrame), CGRectGetMinY(bubbleFrame) + 0.22486 * CGRectGetHeight(bubbleFrame))];

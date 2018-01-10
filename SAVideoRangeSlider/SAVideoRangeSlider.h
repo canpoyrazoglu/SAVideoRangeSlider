@@ -29,7 +29,6 @@
 #import <CoreMedia/CoreMedia.h>
 #import "SASliderLeft.h"
 #import "SASliderRight.h"
-#import "SAResizibleBubble.h"
 
 
 @protocol SAVideoRangeSliderDelegate;
@@ -47,8 +46,7 @@
 @property (nonatomic, assign) NSInteger minGap;
 
 
-- (id)initWithFrame:(CGRect)frame videoUrl:(NSURL *)videoUrl;
-- (void)setPopoverBubbleSize: (CGFloat) width height:(CGFloat)height;
+- (id)initWithFrame:(CGRect)frame asset:(AVAsset*)asset;
 
 
 @end
@@ -61,6 +59,11 @@
 - (void)videoRange:(SAVideoRangeSlider *)videoRange didChangeLeftPosition:(CGFloat)leftPosition rightPosition:(CGFloat)rightPosition;
 
 - (void)videoRange:(SAVideoRangeSlider *)videoRange didGestureStateEndedLeftPosition:(CGFloat)leftPosition rightPosition:(CGFloat)rightPosition;
+
+-(void)videoRangeDidInteractWithTime:(CMTime)time;
+-(void)videoRangeDidFinishInteractingWithBeginning:(CMTime)beginning ending:(CMTime)ending;
+
+-(AVPlayer*)assetPlayer;
 
 
 @end
