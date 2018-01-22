@@ -47,6 +47,7 @@
 
 
 - (id)initWithFrame:(CGRect)frame asset:(AVAsset*)asset;
+-(void)setRangeWithBeginningSeconds:(float)begin endingSeconds:(float)end;
 
 
 @end

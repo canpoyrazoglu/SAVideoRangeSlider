@@ -325,6 +325,10 @@
         
         [self delegateNotification];
         
+    }else if(gesture.state == UIGestureRecognizerStateEnded){
+        if([self.delegate respondsToSelector:@selector(videoRangeDidFinishInteractingWithBeginning:ending:)]){
+            [self.delegate videoRangeDidFinishInteractingWithBeginning:[self timeFromPosition:self.leftPosition] ending:[self timeFromPosition:self.rightPosition]];
+        }
     }
     
     
@@ -460,7 +464,12 @@
     return;
 }
 
-
+-(void)setRangeWithBeginningSeconds:(float)begin endingSeconds:(float)end{
+    _leftPosition = begin / _durationSeconds * _frame_width;
+    _rightPosition = end / _durationSeconds * _frame_width;
+    [self setNeedsLayout];
+    [self layoutIfNeeded];
+}
 
 
 #pragma mark - Properties
